@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 19:35:37 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/12 18:13:43 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/14 15:07:09 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	set_map(char *path, t_vars *vars)
 	size_t	cols;
 	char	*line;
 
+
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return(1);
 	rows = 0;
-	while (1)
+	while (42)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -63,36 +64,6 @@ void	set_img_from_xpm(t_img xpm, t_img img, int x, int y)
 	}
 }
 
-// void	set_img_from_xpm(t_img xpm, t_img img, int x, int y)
-// {
-// 	char	*start;
-// 	size_t	col;
-// 	size_t	col2;
-// 	size_t	row;
-// 	size_t	tim = 0;
-
-
-// 	row = 0;
-// 	start = img_get_onset(xpm, x, y);
-// 	while (row < img.h)
-// 	{
-// 		tim = 0;
-// 		while (tim < 3)
-// 		{
-// 			col2 = 0;
-// 			col = 0;
-// 			while (col2 < img.length)
-// 			{
-// 				img.addr[row * img.length + col2++] = start[col];
-// 				img.addr[row * img.length + col2++] = start[col];
-// 				img.addr[row * img.length + col2++] = start[col++];
-// 			}
-// 			row++;
-// 			tim++;
-// 		}
-// 		start += xpm.length;
-// 	}
-// }
 
 int	main(int argc, char **argv)
 {
@@ -118,8 +89,9 @@ int	main(int argc, char **argv)
 	xpm_to_img(xpm, img, 1, 41);
 
 
-	// new_img = img_extend(vars, img, 3);
-	mlx_put_image_to_window(vars.ptr, vars.win, img.ptr, 4, 5);
+	new_img = img_extend(vars, img, 3);
+	mlx_put_image_to_window(vars.ptr, vars.win, new_img.ptr, 4, 5);
+	mlx_put_image_to_window(vars.ptr, vars.win, img.ptr, 54, 5);
 	printf(">>> %d\n", img.length);
 
 	printf("w: %d, h:%d\n", img.w, img.h);
