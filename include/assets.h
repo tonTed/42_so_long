@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assets.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:08:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/16 17:25:55 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/17 08:28:41 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,22 @@
 **
 **
 */
-# define WALLS_PATH "walls.xpm"
+# define WALLS_PATH "./assets/walls.xpm"
 
 # define POS_LT_WALL_X 4
 # define POS_LT_WALL_Y 18
+# define POS_H_WALL_X 2
+# define POS_H_WALL_Y 19
+# define POS_RT_WALL_X 4
+# define POS_RT_WALL_Y 17
+# define POS_LB_WALL_X 1
+# define POS_LB_WALL_Y 19
+# define POS_VL_WALL_X 1
+# define POS_VL_WALL_Y 18
+# define POS_VR_WALL_X 3
+# define POS_VR_WALL_Y 18
+# define POS_RB_WALL_X 4
+# define POS_RB_WALL_Y 17
+
 
 #endif

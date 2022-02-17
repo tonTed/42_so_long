@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
+#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/02/07 19:11:32 by tonted           ###   ########.fr        #
+#    Updated: 2022/02/17 09:54:58 by tblanco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ INCDIR		= include
 
 # Libft
 LIBFTDIR	= libft
-MAKELIBFT	= @$(MAKE) -C $(LIBFTDIR)
+LIBFTLIB	= -L$(LIBFTDIR) -lft
+
+# mlx
+MLXDIR		= mlx
+MLXLIB		= -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 
 # Name of the final executable
 NAME = so_long
@@ -48,7 +52,6 @@ OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 CC = clang
 # CFLAGS = -Wall -Wextra -Werror -g
 
-MLXLIB = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(HIDE)$(CC) $(CFLAGS) -iquote$(INCDIR) -iquote$(LIBFTDIR) -c  $< -o $@
@@ -57,20 +60,28 @@ all			: buildrepo $(NAME)
 
 $(NAME)		: $(OBJS)
 	$(MAKE) -C $(LIBFTDIR)
-	$(HIDE)$(CC) $(CFLAGS) $(OBJS) -L$(LIBFTDIR) -lft $(MLXLIB) -o $(NAME)
+	$(MAKE) -C $(MLXDIR)
+	$(HIDE)$(CC) $(CFLAGS) $(OBJS) $(LIBFTLIB) $(MLXLIB) -o $(NAME)
 	@printf $(GREEN)"[$@] program created\n"$(RESET)
 	
 clean		:
 	$(HIDE)rm -rf $(OBJDIR)
 	$(HIDE)$(MAKE) clean -C $(LIBFTDIR)
+	$(HIDE)rm -rf $(MLXDIR)/*.o
 	@printf $(YELLOW)"[$(NAME)] objects removed\n"$(RESET)
 
 fclean		: clean
 	$(HIDE)rm -f $(NAME)
 	$(HIDE)$(MAKE) fclean -C $(LIBFTDIR)
+	$(HIDE)$(MAKE) fclean -C $(MLXDIR)
 
-re			: fclean all
+reall		: fclean all
 
+re			:
+	$(HIDE)rm -rf $(OBJDIR)
+	$(HIDE)rm -f $(NAME)
+	$(HIDE)make
+	
 buildrepo	:
 	$(HIDE)$(call make-repo)
 
@@ -93,7 +104,7 @@ define make-repo
 	$(HIDE)mkdir -p $(OBJDIR)
 	$(HIDE)for dir in $(DIRS); \
    	do \
-	mkdir -p $(OBJDIR)/$$dir; \
+	$(HIDE)mkdir -p $(OBJDIR)/$$dir; \
    	done
 endef
 
