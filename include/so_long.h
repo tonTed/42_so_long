@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/10 07:37:30 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/16 16:50:29 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,20 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define SIZE 16
+# define ASSET_SIZE 16
+# define RATIO 3
+# define BLOC_SIZE ASSET_SIZE * RATIO
+# define _UNIQ_BPP 4
+
+typedef struct	s_map_assets
+{
+	char	*lt_wall;
+	char	*h_wall;
+	char	*rt_wall;
+	char	*v_wall;
+	char	*lb_wall;
+	char	*rb_wall;
+}				t_map_assets;
 
 typedef	struct s_img
 {
@@ -41,18 +54,23 @@ typedef struct s_rect
 
 typedef	struct s_vars
 {
-	void	*ptr;
-	void	*win;
-	int		w;
-	int		h;
-	char	*title;
-	int		status;
+	void			*ptr;
+	void			*win;
+	int				w;
+	int				h;
+	char			*title;
+	int				status;
+	t_map_assets	ma;
 }			t_vars;
+
 
 char *get_next_line(int fd);
 
+/* image management */
 t_img	new_image(t_vars vars, unsigned width, unsigned height);
 t_img	new_xpm(t_vars vars, char *path);
+void	xpm_to_img(t_img src, t_img dst, int x, int y);
 t_img	img_extend(t_vars vars, t_img img, unsigned ratio);
+char	*img_get_onset(t_img img, int x, int y);
 
 #endif
