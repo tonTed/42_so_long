@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   err_invalid_args.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 10:07:45 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/18 10:49:00 by tblanco          ###   ########.fr       */
+/*   Created: 2022/02/18 10:37:28 by tblanco           #+#    #+#             */
+/*   Updated: 2022/02/18 11:46:29 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "errors.h"
 
-int	manage_input(t_vars *vars, int argc, const char **argv);
-
-int main(int argc, char const *argv[])
+int	err_argc_invalid(int argc)
 {
-	t_vars	vars;
+	if (argc == 1)
+		return (err_mess("Program must be have one argument"));
+	else
+		return (err_mess("Program has too many arguments"));
+}
 
-	if (manage_input(&vars, argc, argv))
-		return (EXIT_FAILURE);
-	return 0;
+int	err_open(char *error_message, char *path)
+{
+	err_only();
+	err_custom("Opening file: ");
+	err_custom(path);
+	return (EXIT_FAILIURE);
 }

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   init_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:31:43 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/18 08:47:30 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/18 10:06:25 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "assets.h"
 
-unsigned	get_index(unsigned pos_x, unsigned pos_y)
-{
-	return ();
-}
+// unsigned	get_index(unsigned pos_x, unsigned pos_y)
+// {
+// 	return ();
+// }
 
 char	*set_data(t_img img, unsigned pos_x, unsigned pos_y)
 {

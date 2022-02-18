@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/17 22:01:15 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/18 11:29:01 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include "../libft/include/libft.h"
 # include "../mlx/mlx.h"
+# include "errors.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <string.h>
+# include <errno.h>
 
 # define ASSET_SIZE 16
 # define RATIO 3
@@ -51,6 +54,12 @@ typedef struct s_rect
 	int	color;
 }			t_rect;
 
+typedef struct	s_game
+{
+	int	items;
+	int	moves;
+}				t_game;
+
 
 typedef	struct s_vars
 {
@@ -60,6 +69,7 @@ typedef	struct s_vars
 	int				h;
 	char			*title;
 	int				status;
+	t_game			game;
 	t_map_assets	ma;
 }			t_vars;
 

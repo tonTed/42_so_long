@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_extend.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:35:21 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/16 08:03:22 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/18 10:06:07 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_img	img_extend(t_vars vars, t_img img, unsigned ratio)
 	size_t	rows;
 
 	rows = 0;
-	new_img = new_image(vars, img.w * ratio, img.h * ratio);
+	new_img = new_image(vars.ptr, img.w * ratio, img.h * ratio);
 	while (rows < img.h)
 	{
 		img_extend_line(img, new_img, ratio, rows);

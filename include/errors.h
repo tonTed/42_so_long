@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 10:07:45 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/18 10:49:00 by tblanco          ###   ########.fr       */
+/*   Created: 2022/02/18 10:36:45 by tblanco           #+#    #+#             */
+/*   Updated: 2022/02/18 11:47:21 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef ERRORS_H
+# define ERRORS_H
 
-int	manage_input(t_vars *vars, int argc, const char **argv);
+int	err_only(void);
+int	err_mess(char *message);
+int	err_custom(char *message);
 
-int main(int argc, char const *argv[])
-{
-	t_vars	vars;
+int	err_argc_invalid(int argc);
+int	err_open(char *error_message, char *path);
 
-	if (manage_input(&vars, argc, argv))
-		return (EXIT_FAILURE);
-	return 0;
-}
+#endif

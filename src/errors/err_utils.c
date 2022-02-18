@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   err_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 10:07:45 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/18 10:49:00 by tblanco          ###   ########.fr       */
+/*   Created: 2022/02/18 10:44:33 by tblanco           #+#    #+#             */
+/*   Updated: 2022/02/18 11:57:17 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../libft/include/libft.h"
 
-int	manage_input(t_vars *vars, int argc, const char **argv);
-
-int main(int argc, char const *argv[])
+int	err_only(void)
 {
-	t_vars	vars;
-
-	if (manage_input(&vars, argc, argv))
-		return (EXIT_FAILURE);
-	return 0;
+	ft_putendl_fd("Error", STDERR_FILENO);
+	return (EXIT_FAILURE);
 }
+
+int	err_custom(char *message)
+{
+	ft_putstr_fd(message, STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
+
+int	err_mess(char *message)
+{
+	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putendl_fd(message, STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
+
