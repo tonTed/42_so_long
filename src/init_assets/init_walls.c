@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:31:43 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/17 12:45:25 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/02/18 08:47:30 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 unsigned	get_index(unsigned pos_x, unsigned pos_y)
 {
-	
+	return ();
 }
 
 char	*set_data(t_img img, unsigned pos_x, unsigned pos_y)
@@ -41,7 +41,7 @@ char	*set_data(t_img img, unsigned pos_x, unsigned pos_y)
 				while (ratio_row < RATIO)
 				{
 					ft_memcpy(&ret[col*_UNIQ_BPP*ratio_col + row*_UNIQ_BPP*BLOC_SIZE*RATIO + ratio_row*_UNIQ_BPP],
-					&img.addr[col*_UNIQ_BPP + row*_UNIQ_BPP*ASSET_SIZE], _UNIQ_BPP);
+					&img.addr[get_index(pos_x, pos_y) + col*_UNIQ_BPP + row*img.length], _UNIQ_BPP);
 					count++;
 					ratio_row++;
 				}
@@ -58,7 +58,8 @@ bool	set_walls(t_vars *vars)
 {
 	t_img	xpm_walls;
 	
-	xpm_walls = new_xpm(*vars, WALLS_PATH);
-	(*vars).ma.lt_wall = set_data(xpm_walls, POS_LT_WALL_X, POS_LT_WALL_Y);
+	printf("HERE!\n");
+	xpm_walls = new_xpm(vars->ptr, WALLS_PATH);
+	vars->ma.lt_wall = set_data(xpm_walls, POS_LT_WALL_X, POS_LT_WALL_Y);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/16 16:50:29 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/17 22:01:15 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ typedef	struct s_vars
 char *get_next_line(int fd);
 
 /* image management */
-t_img	new_image(t_vars vars, unsigned width, unsigned height);
-t_img	new_xpm(t_vars vars, char *path);
+t_img	new_image(void *mlx_ptr, unsigned width, unsigned height);
+t_img	new_xpm(void *mlx_ptr, char *path);
 void	xpm_to_img(t_img src, t_img dst, int x, int y);
 t_img	img_extend(t_vars vars, t_img img, unsigned ratio);
 char	*img_get_onset(t_img img, int x, int y);
