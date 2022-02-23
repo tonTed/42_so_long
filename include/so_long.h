@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 22:42:21 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/22 23:07:40 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,25 @@
 # include <string.h>
 # include <fcntl.h>
 
+# define DEBUG 1
+
+typedef struct s_map
+{
+	unsigned	w;
+	unsigned	h;
+	char		*data;
+}			t_map;
+
 typedef struct s_vars
 {
-	void	*mlx;
-	void	*win;
-	t_img	*display;
+	void		*mlx;
+	void		*win;
+	t_img		display;
+	t_map		map;
+
 }			t_vars;
+
+char *get_next_line(int fd);
 
 int	read_map(char *path, t_vars *vars);
 

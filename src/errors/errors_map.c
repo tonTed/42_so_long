@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.h                                           :+:      :+:    :+:   */
+/*   errors_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 22:00:36 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 23:20:49 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/22 23:10:18 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/22 23:22:44 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_H
-# define ERRORS_H
+#include "errors.h"
 
-# include "../libraries/libft/include/libft.h" 
-
-# define ERR_MESS "Error\n"
-# define ERR_AMOUNTS_ARG "Arguments expected: 1, given: "
-# define ERR_MAP_W "Widht must be bigger than 2, current is: "
-
-int	err(void);
-
-int	err_amount_args(int argc);
-int	err_open(char *error, char *path);
-int	err_map_w(unsigned w);
-
-#endif
+int	err_map_w(unsigned w)
+{
+	err();
+	ft_putstr_fd(ERR_MAP_W, STDERR_FILENO);
+	ft_putnbr_fd(w, STDERR_FILENO);
+	ft_putendl_fd(".", STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
