@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/09/14 16:28:32 by tblanco           #+#    #+#             */
+/*   Updated: 2021/09/28 14:08:41 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	
-	return 0;
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		if (s[i] == (char) c)
+			return ((char *) &s[i]);
+	if (s[i] == '\0' && c == '\0')
+		return ((char *) &s[i]);
+	return (0);
 }

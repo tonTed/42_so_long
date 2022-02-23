@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/09/21 18:57:07 by tblanco           #+#    #+#             */
+/*   Updated: 2021/10/06 16:21:59 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	
-	return 0;
+	write(fd, s, ft_strlen(s));
 }

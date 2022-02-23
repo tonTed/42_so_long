@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/09/14 15:07:06 by tblanco           #+#    #+#             */
+/*   Updated: 2021/09/14 15:07:59 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	
-	return 0;
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }

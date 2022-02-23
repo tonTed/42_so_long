@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/09/16 10:52:47 by tblanco           #+#    #+#             */
+/*   Updated: 2021/09/27 18:34:38 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	
-	return 0;
+	char		*ret;
+
+	ret = dst;
+	while (n-- && (dst || src))
+		*(char *)dst++ = *(char *)src++;
+	return (ret);
 }

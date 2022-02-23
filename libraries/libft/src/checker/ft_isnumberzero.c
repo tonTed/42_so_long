@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_isnumberzero.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/12/25 23:12:23 by tonted            #+#    #+#             */
+/*   Updated: 2021/12/25 23:12:39 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+bool	isnumberzero(char *str)
 {
-	
-	return 0;
+	while (ft_iswhitespace(*str))
+		str++;
+	if (ft_issign(*str))
+		str++;
+	while (*str == '0')
+		str++;
+	if (*str)
+		return (false);
+	return (true);
 }

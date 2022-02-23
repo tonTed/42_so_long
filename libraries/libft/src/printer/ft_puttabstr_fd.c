@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_puttabstr_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/12/23 19:58:46 by tonted            #+#    #+#             */
+/*   Updated: 2021/12/24 14:31:18 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_puttabstr_fd(char **tab, int fd)
 {
-	
-	return 0;
+	while (*tab)
+	{
+		ft_putendl_fd(*tab, fd);
+		tab++;
+	}
 }

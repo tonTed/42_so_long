@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_reversetab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/12/25 22:49:12 by tonted            #+#    #+#             */
+/*   Updated: 2021/12/25 23:20:49 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_reversetab(int **tab, size_t len)
 {
-	
-	return 0;
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		ft_swap(&(*tab)[i], &(*tab)[len - 1]);
+		i++;
+		len--;
+	}
 }

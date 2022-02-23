@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_isnumberstab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/12/24 17:49:16 by tonted            #+#    #+#             */
+/*   Updated: 2021/12/24 17:57:57 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+bool	ft_isnumberstab(char **tab)
 {
-	
-	return 0;
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (!ft_isnumber(tab[i]))
+			return (false);
+		i++;
+	}
+	return (true);
 }

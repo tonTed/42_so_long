@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
+#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/02/17 09:54:58 by tblanco          ###   ########.fr        #
+#    Updated: 2022/02/22 21:47:58 by tonted           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ OBJDIR		= obj
 INCDIR		= include
 
 # Libft
-LIBFTDIR	= libft
+LIBFTDIR	= libraries/libft
 LIBFTLIB	= -L$(LIBFTDIR) -lft
 
 # mlx
-MLXDIR		= mlx
+MLXDIR		= libraries/mlx
 MLXLIB		= -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 
 # Name of the final executable
@@ -29,7 +29,7 @@ NAME = so_long
 # Decide whether the commands will be shwon or not
 VERBOSE = TRUE
 
-ENTRYPOINT = src/so_long.c
+# ENTRYPOINT = src/so_long.c
 
 # Unit Test management
 UTEST = .test/_test_main.c
@@ -72,8 +72,10 @@ clean		:
 
 fclean		: clean
 	$(HIDE)rm -f $(NAME)
+	$(HIDE)rm -f $(MLXDIR)/libmlx.a
 	$(HIDE)$(MAKE) fclean -C $(LIBFTDIR)
-	$(HIDE)$(MAKE) fclean -C $(MLXDIR)
+
+
 
 reall		: fclean all
 
@@ -89,13 +91,18 @@ print	:
 	@echo $(DIRS)
 	@echo $(SRCS)
 
-utest	: buildrepo $(OBJS)
-	$(HIDE)$(MAKE) -C $(LIBFTDIR)
-	$(HIDE)$(CC) $(CFLAGS) $(OBJS) $(USRCS) -L./libft -lft -o utest
-	@printf $(BLUE)"[$@] unit_test \n"$(RESET)
-	./utest && rm -rf utest
-
 test	: all
+	./so_long maps/map.ber
+
+# VALGRIND = -
+VALGRIND = -valgrind --leak-check=full
+
+_test	:  all
+	./so_long
+
+docker		:
+	docker build ../ -t 42/valgrind
+	docker run --rm -it --name valgrind -v /Users/tonted/42:/42projects 42/valgrind
 
 .PHONY		: clean fclean all re $(OBJDIR) buildrepo print
 

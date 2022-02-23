@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_isduplicates.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/12/24 18:43:27 by tonted            #+#    #+#             */
+/*   Updated: 2021/12/25 23:15:46 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+bool	ft_isduplicates(int *tab, int len)
 {
-	
-	return 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (tab[i] == tab[j])
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
 }

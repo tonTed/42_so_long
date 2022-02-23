@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 21:48:36 by tonted           ###   ########.fr       */
+/*   Created: 2021/09/15 09:57:31 by tblanco           #+#    #+#             */
+/*   Updated: 2021/09/23 22:22:21 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	
-	return 0;
+	if (!n)
+		return (0);
+	while (--n && *s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *) s1 - *(unsigned char *) s2);
 }
