@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   errors_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 22:27:39 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/22 22:16:23 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/22 22:28:08 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "errors.h"
 
-int main(int argc, char **argv)
+int	err_amount_args(int argc)
 {
-	if (argc != 2)
-		return (err_amount_args(argc));
-	return 0;
+	err();
+	ft_putstr_fd(ERR_AMOUNTS_ARG, STDERR_FILENO);
+	ft_putnbr_fd(argc - 1, STDERR_FILENO);
+	ft_putendl_fd(".", STDERR_FILENO);
+	return (EXIT_FAILURE);
 }

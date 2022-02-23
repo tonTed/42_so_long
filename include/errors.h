@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 11:51:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 22:27:39 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/22 22:00:36 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/22 22:26:11 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef ERRORS_H
+# define ERRORS_H
 
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (err_amount_args(argc));
-	return 0;
-}
+# include "../libraries/libft/include/libft.h" 
+
+#define ERR_MESS "Error\n"
+#define ERR_AMOUNTS_ARG "Arguments expected: 1, given: "
+
+int	err(void);
+
+int	err_amount_args(int argc);
+
+#endif
