@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
+#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/02/22 21:47:58 by tonted           ###   ########.fr        #
+#    Updated: 2022/02/23 16:48:09 by tblanco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,14 +91,15 @@ print	:
 	@echo $(DIRS)
 	@echo $(SRCS)
 
-test	: all
-	./so_long maps/map.ber
+VALGRIND = -
+# VALGRIND = -valgrind --leak-check=yes --show-leak-kinds=definite
 
-# VALGRIND = -
-VALGRIND = -valgrind --leak-check=full
+test	: all
+	$(VALGRIND) ./so_long maps/map.ber
+
 
 _test	:  all
-	./so_long
+	 ./so_long
 
 docker		:
 	docker build ../ -t 42/valgrind

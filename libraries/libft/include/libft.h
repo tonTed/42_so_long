@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:52:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/01/30 10:35:12 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/23 12:13:34 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	**ft_split(char const *s, char c);
 size_t	ft_strtablen(char **tab);
+char	*ft_strjoin_free(char *begin, char *end);
 
 /* convert functions */
 int		ft_atoi(const char *str);

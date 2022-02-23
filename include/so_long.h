@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 23:07:40 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/23 16:13:31 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ typedef struct s_vars
 char *get_next_line(int fd);
 
 int	read_map(char *path, t_vars *vars);
+
+void	free_memory(t_vars *vars);
+
+void	print_map(t_map map);
 
 # include <stdio.h>
 

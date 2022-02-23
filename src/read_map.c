@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 09:00:58 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/23 16:49:46 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	init_map(t_map *map, int fd)
 	if (map->w < 3)
 		return (err_map_w(map->w));
 	if (DEBUG)
-		printf("map.w: %u\n", map->w);
+		printf(BLU "map.w: %u\n" RESET, map->w);
 	return (EXIT_SUCCESS);
 }
 
@@ -36,13 +36,26 @@ int	read_file(int fd, t_vars *vars)
 {
 	char	*line;
 
-	if (init_map(&vars->map, fd));
+	if (init_map(&vars->map, fd))
 		return (EXIT_FAILURE);
+	printf("%s\n", vars->map.data);
 	while (42)
 	{
 		line = get_next_line(fd);
-		if (line == 0)
+		if (line == NULL)
 			break ;
+		if (ft_strlen(line) != vars->map.w)
+			return (err_map_w_len(line));
+		printf("%s\n", line);
+		// printf("%p\n", vars->map.data);
+		// vars->map.data = ft_strjoin_free(vars->map.data, line);
+		// printf("%p\n", vars->map.data);
+		vars->map.h++;
+	}
+	if (DEBUG)
+	{
+		printf(BLU "map.h: %u\n" RESET, vars->map.h);
+		// print_map(vars->map);
 	}
 	return (EXIT_SUCCESS);
 }

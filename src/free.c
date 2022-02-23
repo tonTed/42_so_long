@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_utils.c                                     :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 22:20:35 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 11:31:32 by tblanco          ###   ########.fr       */
+/*   Created: 2022/02/23 11:37:04 by tblanco           #+#    #+#             */
+/*   Updated: 2022/02/23 11:40:04 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "errors.h"
+#include "so_long.h"
 
-int	err()
+void	free_memory(t_vars *vars)
 {
-	ft_putstr_fd(BRED ERR_MESS RESET, STDERR_FILENO);
-	return (EXIT_FAILURE);
+	free(vars->map.data);
 }

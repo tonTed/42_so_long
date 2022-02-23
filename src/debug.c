@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_utils.c                                     :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 22:20:35 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 11:31:32 by tblanco          ###   ########.fr       */
+/*   Created: 2022/02/23 12:40:26 by tblanco           #+#    #+#             */
+/*   Updated: 2022/02/23 16:26:15 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "errors.h"
+#include "so_long.h"
 
-int	err()
+void	print_map(t_map map)
 {
-	ft_putstr_fd(BRED ERR_MESS RESET, STDERR_FILENO);
-	return (EXIT_FAILURE);
+	size_t	i;
+
+	i = 0;
+	printf("%p\n", map.data);
+	ft_putstr_fd(map.data, STDOUT_FILENO);
+	// while (map.data[i])
+	// {
+	// 	ft_putchar_fd(map.data[i++], STDOUT_FILENO);
+	// 	if (i % map.w == 0)
+	// 		ft_putchar_fd('\n', STDOUT_FILENO);
+	// }
 }
