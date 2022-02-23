@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/22 22:42:21 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/22 22:43:36 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "../libraries/libft/include/libft.h"
-# include "../libraries/mlx/mlx.h"
-# include "mlx_image.h"
-# include "errors.h"
-# include <errno.h>
-# include <string.h>
-# include <fcntl.h>
-
-typedef struct s_vars
+int	open_file(char *path, int *fd)
 {
-	void	*mlx;
-	void	*win;
-	t_img	*display;
-}			t_vars;
+	*fd = open(path, O_RDONLY);
+	if (*fd == -1)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
 
-int	read_map(char *path, t_vars *vars);
+int	read_map(char *path, t_vars *vars)
+{
+	int	fd;
 
-# include <stdio.h>
-
-#endif
+	if (open_file(path, &fd))
+		return (err_open(strerror(errno), path));
+	return (EXIT_SUCCESS);
+}
