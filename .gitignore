@@ -4,5 +4,5 @@ icon.png
 obj
 so_long.dSYM
 so_long
-mlx/*.o
-mlx/*.a
+libraries/mlx/*.o
+libraries/mlx/*.a
