@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:00:36 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 22:09:49 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/25 20:37:04 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define ERR_MAP_W "Widht must be bigger than 2, current is: "
 # define ERR_MAP_W_LEN "Map is not rectangular\n"
 # define ERR_MAP_WALL "Map is not closed\n"
+# define ERR_MAP_PLAYER "Amount of player must be 1.\n"
+# define ERR_MAP_EXIT "Amount of exit must be 1.\n"
 
 int	err(void);
 
@@ -28,5 +30,7 @@ int	err_open(char *error, char *path);
 int	err_map_w(unsigned w);
 int	err_map_w_len(char *line);
 int	err_map_wall(char *line);
+int	err_map_player();
+int	err_map_exit();
 
 #endif

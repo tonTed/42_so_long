@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 22:51:54 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/25 20:19:55 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,6 @@ char	*data_concat_free(char *s1, char *s2, size_t len)
 	free(s1);
 	free(s2);
 	return (ret);
-}
-
-int		is_only_wall(char *line)
-{
-	while (*line)
-		if (*line++ != WALL_CHAR)
-			return (err_map_wall(NULL));
-	return (EXIT_SUCCESS);
-}
-
-int		is_col_wall(char *line, size_t i_end)
-{
-	if (line[0] != WALL_CHAR || line[i_end] != WALL_CHAR)
-		return (err_map_wall(line));
-	return (EXIT_SUCCESS);
 }
 
 size_t	get_last_line(t_vars *vars)
@@ -102,8 +87,8 @@ int	read_map(char *path, t_vars *vars)
 	if (open_file(path, &fd))
 		return (EXIT_FAILURE);
 	if (read_file(fd, vars))
-	{
 		return (EXIT_FAILURE);
-	}
+	if (is_valid_map(&vars->map))
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

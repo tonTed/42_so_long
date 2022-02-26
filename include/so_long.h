@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/23 22:04:36 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/25 20:38:54 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int	read_map(char *path, t_vars *vars);
 void	free_memory(t_vars *vars);
 
 void	print_map(t_map map);
+
+int	is_only_wall(char *line);
+int	is_col_wall(char *line, size_t i_end);
+int	is_valid_map(t_map *map);
 
 # include <stdio.h>
 
