@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug.c                                            :+:      :+:    :+:   */
+/*   keyboard.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 12:40:26 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/25 21:00:45 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/27 09:46:16 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/27 09:48:40 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef KEYBOARD_H
+# define KEYBOARD_H
 
-void	print_map(t_map map)
-{
-	size_t	i;
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
 
-	i = 0;
-	ft_putstr_fd(GRN "", STDOUT_FILENO);
-	while (map.data[i])
-	{
-		ft_putchar_fd(map.data[i++], STDOUT_FILENO);
-		if (i % map.w == 0)
-			ft_putchar_fd('\n', STDOUT_FILENO);
-	}
-	ft_putstr_fd(RESET "", STDOUT_FILENO);
-}
+
+
+#endif

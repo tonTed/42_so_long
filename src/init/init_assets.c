@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:27:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/26 12:36:44 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 17:37:23 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void		init_assets(t_vars *vars)
 
 	mlx_destroy_image(vars->mlx, wall.img.ptr);
 	mlx_destroy_image(vars->mlx, player.img.ptr);
+	mlx_destroy_image(vars->mlx, collec.img.ptr);
 }

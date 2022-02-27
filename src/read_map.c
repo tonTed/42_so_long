@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/26 11:00:43 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 16:37:06 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,6 @@ int	read_file(int fd, t_vars *vars)
 	}
 	if (is_only_wall(&vars->map.data[get_last_line(vars)]))
 		return (EXIT_FAILURE);
-	if (DEBUG)
-	{
-		printf(BLU "map.h: %u\n" RESET, vars->map.h);
-		print_map(vars->map);
-	}
 	return (EXIT_SUCCESS);
 }
 

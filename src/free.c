@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/25 21:40:38 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 17:32:06 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	free_memory(t_vars *vars)
 int	free_exit(t_vars *vars, int code_exit)
 {
 	free_memory(vars);
+	exit(code_exit);
 	return (code_exit);
 }
