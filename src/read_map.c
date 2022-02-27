@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/25 20:19:55 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/26 11:00:43 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@ int	open_file(char *path, int *fd)
 	*fd = open(path, O_RDONLY);
 	if (*fd == -1)
 		return (err_open(strerror(errno), path));
-	return (EXIT_SUCCESS);
-}
-
-int	init_map(t_map *map, int fd)
-{
-	map->h = 1;
-	map->data = get_next_line(fd);
-	map->w = ft_strlen(map->data);
-	if (map->w < 3)
-		return (err_map_w(map->w));
-	if (DEBUG)
-		printf(BLU "map.w: %u\n" RESET, map->w);
 	return (EXIT_SUCCESS);
 }
 
@@ -90,5 +78,6 @@ int	read_map(char *path, t_vars *vars)
 		return (EXIT_FAILURE);
 	if (is_valid_map(&vars->map))
 		return (EXIT_FAILURE);
+	vars->map.len = vars->map.w * vars->map.h;
 	return (EXIT_SUCCESS);
 }

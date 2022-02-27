@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:04:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/25 20:41:50 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/26 10:55:49 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_map
 {
 	unsigned	w;
 	unsigned	h;
+	unsigned	len;
 	ssize_t		items;
 	char		*data;
 	t_coord		exit;

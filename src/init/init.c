@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 11:37:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/25 21:40:38 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/25 20:59:48 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/25 21:00:01 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_assets(t_assets assets)
+int	init_map(t_map *map, int fd)
 {
-	free(assets.wall);
-	free(assets.exit);
-	free(assets.floor);
-	free(assets.item);
-	free(assets.player);
-}
-
-void	free_memory(t_vars *vars)
-{
-	free(vars->map.data);
-	free_assets(vars->assets);
-}
-
-int	free_exit(t_vars *vars, int code_exit)
-{
-	free_memory(vars);
-	return (code_exit);
+	map->h = 1;
+	map->data = get_next_line(fd);
+	map->w = ft_strlen(map->data);
+	if (map->w < 3)
+		return (err_map_w(map->w));
+	if (DEBUG)
+		printf(BLU "map.w: %u\n" RESET, map->w);
+	return (EXIT_SUCCESS);
 }
