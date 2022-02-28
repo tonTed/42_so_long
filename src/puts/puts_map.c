@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 16:23:18 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 16:37:01 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:45:38 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	put_map(t_map map)
 void	put_player(t_player *player)
 {
 	printf("moves\t-> addr: %p - data: %d\n", &player->moves, player->moves);
-	printf("pos\t-> addr: %p - data: x(%d)/y(%d)\n", &player->pos, player->pos.x, player->pos.y);
+	printf("pos\t-> addr: %p - data: x(%d)/y(%d)\n", &player->pos,
+		player->pos.x, player->pos.y);
 }

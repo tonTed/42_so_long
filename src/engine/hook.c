@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 12:03:03 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/23 21:15:18 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/27 18:32:24 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/27 18:34:37 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_strjoin_free(char *begin, char *end)
+int	key_hook(int key, void *param)
 {
-	char	*ret;
-	size_t	len_begin;
-	size_t	len_end;
-
-	
-	len_begin = ft_strlen(begin);
-	len_end = ft_strlen(end);
-	ret = (char *)malloc(sizeof(char) * (len_begin + len_end + 1));
-	ft_strlcpy(ret, begin, len_begin);
-	ft_strlcpy(&ret[len_begin], end, len_end);
-	free(begin);
-	free(end);
-	return (ret);
+	if (key == KEY_W)
+		move_up(param);
+	else if (key == KEY_S)
+		move_down(param);
+	else if (key == KEY_D)
+		move_right(param);
+	else if (key == KEY_A)
+		move_left(param);
+	else if (key == KEY_ESC)
+		free_exit(param, EXIT_SUCCESS);
+	if (end_game(param))
+		close_game(param);
+	return (EXIT_SUCCESS);
 }

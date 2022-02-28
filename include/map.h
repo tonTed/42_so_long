@@ -6,9 +6,12 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:04:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/26 10:55:49 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 19:56:11 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef MAP_H
+# define MAP_H
 
 # define WALL_CHAR '1'
 # define ITEM_CHAR 'C'
@@ -26,17 +29,19 @@ typedef struct s_coord
 
 typedef struct s_player
 {
-	unsigned	moves;
+	u_int32_t	moves;
 	t_coord		pos;
 }			t_player;
 
 typedef struct s_map
 {
-	unsigned	w;
-	unsigned	h;
-	unsigned	len;
+	u_int32_t	w;
+	u_int32_t	h;
+	u_int32_t	len;
 	ssize_t		items;
 	char		*data;
 	t_coord		exit;
 	t_player	player;
 }			t_map;
+
+#endif

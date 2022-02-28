@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyboard.h                                         :+:      :+:    :+:   */
+/*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 09:46:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 19:58:50 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/27 18:30:14 by tonted            #+#    #+#             */
+/*   Updated: 2022/02/27 18:31:05 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYBOARD_H
-# define KEYBOARD_H
+#include "so_long.h"
 
-# define KEY_ESC 53
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-
-#endif
+int	ignore_color(char *data)
+{
+	return (*(int *)data == COLOR_IGNORED);
+}

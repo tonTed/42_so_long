@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:30:31 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 16:37:06 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:24:05 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	read_file(int fd, t_vars *vars)
 			return (err_map_w_len(line));
 		if (is_col_wall(line, vars->map.w - 1))
 			return (EXIT_FAILURE);
-		vars->map.data =  data_concat_free(vars->map.data, line, vars->map.w);
+		vars->map.data = data_concat_free(vars->map.data, line, vars->map.w);
 		vars->map.h++;
 	}
 	if (is_only_wall(&vars->map.data[get_last_line(vars)]))

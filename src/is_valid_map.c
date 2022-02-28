@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 07:09:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 16:43:36 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:37:31 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_col_wall(char *line, size_t i_end)
 	return (EXIT_SUCCESS);
 }
 
-int	is_valid_char(char c, char *flag, t_map *map, unsigned len)
+int	is_valid_char(char c, char *flag, t_map *map, u_int32_t len)
 {
 	if (c == PLAYER_CHAR)
 	{
@@ -50,7 +50,7 @@ int	is_valid_char(char c, char *flag, t_map *map, unsigned len)
 
 int	is_valid_map(t_map *map)
 {
-	unsigned	i;
+	u_int32_t	i;
 	char		flag;
 
 	map->items = 0;

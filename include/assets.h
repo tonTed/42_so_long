@@ -6,14 +6,17 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:04:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 09:02:11 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 19:58:43 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ASSETS_H
+# define ASSETS_H
 
 # define BPP 4
 # define TITLE "so_long"
 # define BLOC_SIZE 32
-# define BLOC_LEN BLOC_SIZE * BPP
+# define BLOC_LEN 128
 # define COLOR_IGNORED 0x00FF00
 
 /* WALL & FLOOR */
@@ -55,3 +58,5 @@ typedef struct s_assets
 	char	*player;
 	char	*exit;
 }			t_assets;
+
+#endif

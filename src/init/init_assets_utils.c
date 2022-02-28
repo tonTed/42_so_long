@@ -6,23 +6,23 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 10:22:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/26 10:50:17 by tonted           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:38:58 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char			*alloc_asset()
+char	*alloc_asset(void)
 {
 	return ((char *)ft_calloc(BLOC_LEN * BLOC_SIZE, sizeof(char)));
 }
 
-unsigned		get_index_begin(unsigned pos_x, unsigned pos_y, t_xpm xpm)
+u_int32_t	get_index_begin(u_int32_t pos_x, u_int32_t pos_y, t_xpm xpm)
 {
-	int	first_line_empty; 
+	int	first_line_empty;
 	int	first_col_empty ;
 	int	lines_skiped;
-	int col_skiped;
+	int	col_skiped;
 
 	first_line_empty = xpm.periph * xpm.img.length;
 	first_col_empty = xpm.periph * BPP;
@@ -31,7 +31,7 @@ unsigned		get_index_begin(unsigned pos_x, unsigned pos_y, t_xpm xpm)
 	return (first_line_empty + lines_skiped + first_col_empty + col_skiped);
 }
 
-static unsigned	get_index_dst(t_set_data cur_pos, unsigned ratio)
+static u_int32_t	get_index_dst(t_set_data cur_pos, u_int32_t ratio)
 {
 	return (BLOC_LEN * cur_pos.row_origin * ratio
 		+ BLOC_LEN * cur_pos.row_new
@@ -39,14 +39,14 @@ static unsigned	get_index_dst(t_set_data cur_pos, unsigned ratio)
 		+ cur_pos.col_new * BPP);
 }
 
-static unsigned	get_index_src(t_set_data cur_pos, unsigned length)
+static u_int32_t	get_index_src(t_set_data cur_pos, u_int32_t length)
 {
 	return (cur_pos.i
 		+ cur_pos.row_origin * length
 		+ cur_pos.col_origin * BPP);
 }
 
-void		set_data_pixel(t_set_data cur_pos, char *dst, t_xpm xpm)
+void	set_data_pixel(t_set_data cur_pos, char *dst, t_xpm xpm)
 {
 	cur_pos.col_new = 0;
 	while (cur_pos.col_new < xpm.ratio)

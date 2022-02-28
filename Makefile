@@ -6,7 +6,7 @@
 #    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/02/27 17:47:21 by tonted           ###   ########.fr        #
+#    Updated: 2022/02/27 20:00:33 by tonted           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,19 +60,19 @@ all			: buildrepo $(NAME)
 
 $(NAME)		: $(OBJS)
 	$(MAKE) -C $(LIBFTDIR)
-	$(MAKE) -C $(MLXDIR)
+# $(MAKE) -C $(MLXDIR)
 	$(HIDE)$(CC) $(CFLAGS) $(OBJS) $(LIBFTLIB) $(MLXLIB) -o $(NAME)
 	@printf $(GREEN)"[$@] program created\n"$(RESET)
 	
 clean		:
 	$(HIDE)rm -rf $(OBJDIR)
 	$(HIDE)$(MAKE) clean -C $(LIBFTDIR)
-	$(HIDE)rm -rf $(MLXDIR)/*.o
+# $(HIDE)rm -rf $(MLXDIR)/*.o
 	@printf $(YELLOW)"[$(NAME)] objects removed\n"$(RESET)
 
 fclean		: clean
 	$(HIDE)rm -f $(NAME)
-	$(HIDE)rm -f $(MLXDIR)/libmlx.a
+# $(HIDE)rm -f $(MLXDIR)/libmlx.a
 	$(HIDE)$(MAKE) fclean -C $(LIBFTDIR)
 
 
