@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 07:09:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 18:37:31 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 08:05:11 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	is_valid_map(t_map *map)
 
 	map->items = 0;
 	flag = 0x0;
+	i = 0;
 	while (map->data[i])
 	{
 		if (map->data[i] == EMPTY_CHAR || map->data[i] == WALL_CHAR)

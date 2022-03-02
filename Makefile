@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
+#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/02/27 20:00:33 by tonted           ###   ########.fr        #
+#    Updated: 2022/03/02 08:10:10 by tblanco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,19 +60,19 @@ all			: buildrepo $(NAME)
 
 $(NAME)		: $(OBJS)
 	$(MAKE) -C $(LIBFTDIR)
-# $(MAKE) -C $(MLXDIR)
+	$(MAKE) -C $(MLXDIR)
 	$(HIDE)$(CC) $(CFLAGS) $(OBJS) $(LIBFTLIB) $(MLXLIB) -o $(NAME)
 	@printf $(GREEN)"[$@] program created\n"$(RESET)
 	
 clean		:
 	$(HIDE)rm -rf $(OBJDIR)
 	$(HIDE)$(MAKE) clean -C $(LIBFTDIR)
-# $(HIDE)rm -rf $(MLXDIR)/*.o
+	$(HIDE)rm -rf $(MLXDIR)/*.o
 	@printf $(YELLOW)"[$(NAME)] objects removed\n"$(RESET)
 
 fclean		: clean
 	$(HIDE)rm -f $(NAME)
-# $(HIDE)rm -f $(MLXDIR)/libmlx.a
+	$(HIDE)rm -f $(MLXDIR)/libmlx.a
 	$(HIDE)$(MAKE) fclean -C $(LIBFTDIR)
 
 
@@ -91,8 +91,9 @@ print	:
 	@echo $(DIRS)
 	@echo $(SRCS)
 
-VALGRIND = -
-# VALGRIND = -valgrind --leak-check=yes --show-leak-kinds=definite
+# VALGRIND = -
+# VALGRIND = -valgrind --leak-check=yes
+VALGRIND = -leaks --atExit --
 
 test0	: all
 	$(VALGRIND) ./so_long maps/map0.ber
