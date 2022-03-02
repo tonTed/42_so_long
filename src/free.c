@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/02/27 17:32:06 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 18:26:56 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	free_assets(t_assets assets)
 	free(assets.exit);
 	free(assets.floor);
 	free(assets.item);
-	free(assets.player);
+	free(assets.p_bot);
+	free(assets.p_top);
+	free(assets.p_right);
+	free(assets.p_left);
 }
 
 void	free_memory(t_vars *vars)

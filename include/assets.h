@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:04:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 19:58:43 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 10:46:47 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,19 @@
 # define PLAYER_X 3
 # define PLAYER_Y 1
 
+/* PLAYER TOP */
+# define PLAYER_X_TOP 4
+# define PLAYER_Y_TOP 1
+/* PLAYER BOT */
+# define PLAYER_X_BOP 1
+# define PLAYER_Y_BOP 1
+/* PLAYER LEFT */
+# define PLAYER_X_LEFT 2
+# define PLAYER_Y_LEFT 1
+/* PLAYER RIGHT */
+# define PLAYER_X_RIGHT 3
+# define PLAYER_Y_RIGHT 1
+
 /* COLLECTABLES */
 # define PATH_C "./assets/collectables.xpm"
 # define SIZE_C 16
@@ -56,6 +69,10 @@ typedef struct s_assets
 	char	*floor;
 	char	*item;
 	char	*player;
+	char	*p_top;
+	char	*p_bot;
+	char	*p_left;
+	char	*p_right;
 	char	*exit;
 }			t_assets;
 
