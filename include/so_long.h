@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 20:08:37 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 16:10:22 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 
 /* BONUS */
 # include <time.h>
+# define COLOR_STR 0xFB9B17
+# define MOVE_STR "Moves: "
 
 # define DEBUG 1
 
@@ -38,6 +40,15 @@ typedef struct s_vars
 	t_map		map;
 	t_assets	assets;
 }			t_vars;
+
+/* BONUS */
+typedef struct s_rect
+{
+	u_int32_t	width;
+	u_int32_t	height;
+	u_int32_t	x;
+	u_int32_t	y;
+}			t_rect;
 
 /* initialization */
 int			init_map(t_map *map, int fd);

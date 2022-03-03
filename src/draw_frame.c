@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:26:54 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 20:08:45 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 16:04:22 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	draw_background(t_vars *vars)
 	uint32_t	len;
 
 	len = 0;
-	while (len < vars->map.w * vars->map.h)
+	while (len < vars->map.w * (vars->map.h - 1))
 	{
 		if (vars->map.data[len] == WALL_CHAR)
 		{
@@ -75,11 +75,14 @@ void	draw_player(t_vars *vars)
 		vars->map.player.pos.x, vars->map.player.pos.y);
 }
 
+void	display_move(t_vars *vars);
+
 int	draw_frame(t_vars *vars)
 {
 	draw_background(vars);
 	draw_player(vars);
 	counter(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->display.ptr, 0, 0);
+	display_move(vars);
 	return (EXIT_SUCCESS);
 }
