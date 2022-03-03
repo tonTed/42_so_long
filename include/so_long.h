@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 19:54:35 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 20:08:37 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # include <string.h>
 # include <fcntl.h>
 # include <stdio.h>
+
+/* BONUS */
+# include <time.h>
 
 # define DEBUG 1
 
@@ -81,5 +84,8 @@ u_int32_t	get_pos_data_map(u_int32_t x, u_int32_t y, u_int32_t width);
 bool		cur_char(t_map map, char c);
 bool		is_next_move_valid(t_map *map, int step_x, int step_y);
 int			key_hook(int key, void *param);
+
+/* BONUS */
+void		counter(t_vars *vars);
 
 #endif

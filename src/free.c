@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/03/02 18:26:56 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 20:27:53 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 void	free_assets(t_assets assets)
 {
+	u_int32_t	i;
+
 	free(assets.wall);
 	free(assets.exit);
 	free(assets.floor);
-	free(assets.item);
 	free(assets.p_bot);
 	free(assets.p_top);
 	free(assets.p_right);
 	free(assets.p_left);
+	i = 0;
+	while (assets.items[i])
+		free(assets.items[i++]);
+	free(assets.items);
 }
 
 void	free_memory(t_vars *vars)

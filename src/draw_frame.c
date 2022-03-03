@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:26:54 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 18:30:49 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 20:08:45 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	draw_frame(t_vars *vars)
 {
 	draw_background(vars);
 	draw_player(vars);
+	counter(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->display.ptr, 0, 0);
 	return (EXIT_SUCCESS);
 }

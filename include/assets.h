@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:04:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 10:46:47 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/02 19:07:01 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 # define PLAYER_Y_RIGHT 1
 
 /* COLLECTABLES */
+/*
 # define PATH_C "./assets/collectables.xpm"
 # define SIZE_C 16
 # define RATIO_C 2
@@ -62,11 +63,23 @@
 # define SEP_C 1
 # define COLLEC_X 6
 # define COLLEC_Y 8
+*/
+
+/* COLLECTABLES */
+# define PATH_C "./assets/coin.xpm"
+# define SIZE_C 32
+# define RATIO_C 1
+# define PERIPH_C 1
+# define SEP_C 0
+# define COLLEC_ROWS 1
+# define COLLEC_COLS 20
+# define COLLEC_TOTAL 20
 
 typedef struct s_assets
 {
 	char	*wall;
 	char	*floor;
+	char	**items;
 	char	*item;
 	char	*player;
 	char	*p_top;
