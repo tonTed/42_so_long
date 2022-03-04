@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
+#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/03/03 22:08:00 by tonted           ###   ########.fr        #
+#    Updated: 2022/03/04 08:16:46 by tblanco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,3 +148,5 @@ ifeq ($(VERBOSE),TRUE)
 else
     HIDE = @
 endif
+
+# src/draw_frame.c src/draw_utils.c src/free.c src/is_valid_map.c src/read_map.c src/so_long.c src/animation/collectables_animation_bonus.c src/engine/enemy_moves.c src/engine/enemy_moves_utils.c src/engine/hook.c src/engine/moves.c src/engine/moves_utils.c src/errors/errors_input.c src/errors/errors_map_1.c src/errors/errors_map_2.c src/errors/errors_utils.c src/init/init.c src/init/init_assets.c src/init/init_assets_utils.c src/puts/puts_map.c src/utils/gnl.c src/utils/img_creation.c
