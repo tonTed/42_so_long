@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:24:43 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/03 22:02:48 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/04 08:10:55 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	move_enemy(t_vars *vars, int nb)
 		move_right_enemy(vars);
 	if (is_player_on_enemy(vars->map, vars))
 		close_game(vars);
-	if (i % 2 == 0)
+	if (i % 2 == 0 && rand)
 		i /= rand;
 	else
 		i += nb;
