@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:04:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 19:56:11 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 19:11:42 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # define EMPTY_CHAR '0'
 # define PLAYER_FLAG 0x1
 # define EXIT_FLAG 0x2
+# define ENEMY_FLAG 0x4
+
+/* BONUS */
+# define ENEMY_CHAR 'M'
 
 typedef struct s_coord
 {
@@ -33,6 +37,12 @@ typedef struct s_player
 	t_coord		pos;
 }			t_player;
 
+typedef struct s_enemy
+{
+	t_coord		pos;
+	u_int16_t	exists;
+}			t_enemy;
+
 typedef struct s_map
 {
 	u_int32_t	w;
@@ -42,6 +52,7 @@ typedef struct s_map
 	char		*data;
 	t_coord		exit;
 	t_player	player;
+	t_enemy		enemy;
 }			t_map;
 
 #endif

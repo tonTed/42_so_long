@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_map.c                                       :+:      :+:    :+:   */
+/*   errors_map_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 23:10:18 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 18:44:43 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 21:29:52 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,7 @@ int	err_map_wall(char *line)
 {
 	err();
 	ft_putstr_fd(ERR_MAP_WALL, STDERR_FILENO);
-	if (!line)
+	if (line)
 		free (line);
-	return (EXIT_FAILURE);
-}
-
-int	err_map_player(void)
-{
-	err();
-	ft_putstr_fd(ERR_MAP_PLAYER, STDERR_FILENO);
-	return (EXIT_FAILURE);
-}
-
-int	err_map_exit(void)
-{
-	err();
-	ft_putstr_fd(ERR_MAP_EXIT, STDERR_FILENO);
 	return (EXIT_FAILURE);
 }

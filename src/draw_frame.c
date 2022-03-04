@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:26:54 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/03 16:04:22 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 21:10:26 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,19 @@ void	draw_background(t_vars *vars)
 	}
 }
 
-void	draw_player(t_vars *vars)
+void	draw_players(t_vars *vars)
 {
 	bloc_line(&vars->display, vars->assets.player,
 		vars->map.player.pos.x, vars->map.player.pos.y);
+	if (vars->map.enemy.exists)
+		bloc_line(&vars->display, vars->assets.enemy,
+			vars->map.enemy.pos.x, vars->map.enemy.pos.y);
 }
-
-void	display_move(t_vars *vars);
 
 int	draw_frame(t_vars *vars)
 {
 	draw_background(vars);
-	draw_player(vars);
+	draw_players(vars);
 	counter(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->display.ptr, 0, 0);
 	display_move(vars);

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   enemy_moves_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 18:32:24 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/03 19:18:10 by tonted           ###   ########.fr       */
+/*   Created: 2022/03/03 19:24:43 by tonted            #+#    #+#             */
+/*   Updated: 2022/03/03 21:07:18 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_hook(int key, void *param)
+bool	is_next_move_valid_e(t_map *map, int step_x, int step_y)
 {
-	if (key == KEY_W)
-		move_up(param);
-	else if (key == KEY_S)
-		move_down(param);
-	else if (key == KEY_D)
-		move_right(param);
-	else if (key == KEY_A)
-		move_left(param);
-	else if (key == KEY_ESC)
-		free_exit(param, EXIT_SUCCESS);
-	if (end_game(param))
-		close_game(param);
-	return (EXIT_SUCCESS);
+	u_int32_t	i_data;
+
+	i_data = get_pos_data_map(map->enemy.pos.x + step_x, map->enemy.pos.y
+			+ step_y, map->w);
+	if (map->data[i_data] == WALL_CHAR)
+		return (false);
+	return (true);
 }

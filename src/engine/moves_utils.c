@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:47:24 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 18:49:47 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 20:27:47 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,21 @@ bool	cur_char(t_map map, char c)
 	return (false);
 }
 
+bool	is_player_on_enemy(t_map map, t_vars *vars)
+{
+	if ((map.enemy.pos.x == map.player.pos.x)
+		&& (map.enemy.pos.y == map.player.pos.y))
+	{
+		return (true);
+	}
+	return (false);
+}
+
 bool	end_game(t_vars *vars)
 {
 	if (!vars->map.items && cur_char(vars->map, EXIT_CHAR))
+		return (true);
+	if (is_player_on_enemy(vars->map, vars))
 		return (true);
 	return (false);
 }

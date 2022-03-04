@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:04:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 19:07:01 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 19:06:14 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,15 @@
 # define COLLEC_COLS 20
 # define COLLEC_TOTAL 20
 
+/* COLLECTABLES */
+# define PATH_M "./assets/enemy.xpm"
+# define SIZE_M 32
+# define RATIO_M 1
+# define PERIPH_M 0
+# define SEP_M 0
+# define ENEMY_X 3
+# define ENEMY_Y 1
+
 typedef struct s_assets
 {
 	char	*wall;
@@ -87,6 +96,7 @@ typedef struct s_assets
 	char	*p_left;
 	char	*p_right;
 	char	*exit;
+	char	*enemy;
 }			t_assets;
 
 #endif

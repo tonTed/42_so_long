@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 22:00:36 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 19:57:15 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 16:30:18 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define ERR_MAP_WALL "Map is not closed\n"
 # define ERR_MAP_PLAYER "Amount of player must be 1.\n"
 # define ERR_MAP_EXIT "Amount of exit must be 1.\n"
+# define ERR_MAP_ENEMY "Amount of enemy must be 0 or 1.\n"
 
 int	err(void);
 
@@ -32,5 +33,6 @@ int	err_map_w_len(char *line);
 int	err_map_wall(char *line);
 int	err_map_player(void);
 int	err_map_exit(void);
+int	err_map_enemy(void);
 
 #endif

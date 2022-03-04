@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   errors_map_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 18:32:24 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/03 19:18:10 by tonted           ###   ########.fr       */
+/*   Created: 2022/02/22 23:10:18 by tonted            #+#    #+#             */
+/*   Updated: 2022/03/03 21:10:06 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "errors.h"
 
-int	key_hook(int key, void *param)
+int	err_map_player(void)
 {
-	if (key == KEY_W)
-		move_up(param);
-	else if (key == KEY_S)
-		move_down(param);
-	else if (key == KEY_D)
-		move_right(param);
-	else if (key == KEY_A)
-		move_left(param);
-	else if (key == KEY_ESC)
-		free_exit(param, EXIT_SUCCESS);
-	if (end_game(param))
-		close_game(param);
-	return (EXIT_SUCCESS);
+	err();
+	ft_putstr_fd(ERR_MAP_PLAYER, STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
+
+int	err_map_exit(void)
+{
+	err();
+	ft_putstr_fd(ERR_MAP_EXIT, STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
+
+int	err_map_enemy(void)
+{
+	err();
+	ft_putstr_fd(ERR_MAP_ENEMY, STDERR_FILENO);
+	return (EXIT_FAILURE);
 }

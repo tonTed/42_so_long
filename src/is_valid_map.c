@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 07:09:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 08:05:11 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/03/03 21:24:33 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ int	is_valid_char(char c, char *flag, t_map *map, u_int32_t len)
 		else
 			*flag |= EXIT_FLAG;
 	}
+	else if (c == ENEMY_CHAR)
+	{
+		if (ENEMY_FLAG & *flag)
+			return (err_map_exit());
+		else
+			*flag |= ENEMY_FLAG;
+		init_enemy(map, len);
+	}
 	else
 		return (err());
 	return (EXIT_SUCCESS);
@@ -53,6 +61,7 @@ int	is_valid_map(t_map *map)
 	u_int32_t	i;
 	char		flag;
 
+	map->enemy.exists = 0;
 	map->items = 0;
 	flag = 0x0;
 	i = 0;
@@ -66,5 +75,7 @@ int	is_valid_map(t_map *map)
 			return (EXIT_FAILURE);
 		i++;
 	}
+	if (flag < 0x3)
+		return (err());
 	return (EXIT_SUCCESS);
 }

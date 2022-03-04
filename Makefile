@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+         #
+#    By: tonted <tonted@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 19:36:25 by tonted            #+#    #+#              #
-#    Updated: 2022/03/02 08:10:10 by tblanco          ###   ########.fr        #
+#    Updated: 2022/03/03 22:08:00 by tonted           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,20 @@ test0	: all
 	$(VALGRIND) ./so_long maps/map0.ber
 test1	: all
 	$(VALGRIND) ./so_long maps/map1.ber
-
+test2	: all
+	$(VALGRIND) ./so_long maps/map_smaller.ber
+teste	: all
+	$(VALGRIND) ./so_long maps/map_enemy.ber
+test_err	: all
+	$(VALGRIND) ./so_long maps/map_err_exit0.ber
+	$(VALGRIND) ./so_long maps/map_err_exit2.ber
+	$(VALGRIND) ./so_long maps/map_err_player0.ber
+	$(VALGRIND) ./so_long maps/map_err_player2.ber
+	$(VALGRIND) ./so_long maps/map_err_open.ber
+	$(VALGRIND) ./so_long maps/map_not_rect.ber
+	@chmod 111 maps/map_err_file.ber
+	$(VALGRIND) ./so_long maps/map_err_file.ber
+	@chmod 777 maps/map_err_file.ber
 
 _test	:  all
 	 ./so_long

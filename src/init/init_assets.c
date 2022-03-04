@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:27:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/02 20:23:49 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 19:08:52 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ void	set_player_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, player.img.ptr);
 }
 
+void	set_enemy_asset(t_vars *vars)
+{
+	t_xpm	enemy;
+
+	enemy = new_xpm(vars->mlx, PATH_M, RATIO_M);
+	set_xpm(&enemy, PERIPH_M, SEP_M, SIZE_M);
+	set_data(enemy, &vars->assets.enemy, ENEMY_X, ENEMY_Y);
+	mlx_destroy_image(vars->mlx, enemy.img.ptr);
+}
+
 void	set_collec_assets(t_vars *vars)
 {
 	t_xpm		collec;
@@ -81,4 +91,5 @@ void	init_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, wall.img.ptr);
 	set_player_assets(vars);
 	set_collec_assets(vars);
+	set_enemy_asset(vars);
 }

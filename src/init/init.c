@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 20:59:48 by tonted            #+#    #+#             */
-/*   Updated: 2022/02/27 18:39:59 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 19:12:33 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ void	init_player(t_map *map, int len)
 	map->player.pos.y = len / map->w;
 	map->player.moves = 0;
 	map->data[len] = EMPTY_CHAR;
+}
+
+void	init_enemy(t_map *map, int len)
+{
+	map->enemy.pos.x = len % map->w;
+	map->enemy.pos.y = len / map->w;
+	map->data[len] = EMPTY_CHAR;
+	map->enemy.exists = 1;
 }
 
 void	init_mlx_assets(t_vars *vars)

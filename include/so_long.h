@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 22:25:16 by tonted            #+#    #+#             */
-/*   Updated: 2022/03/03 16:10:22 by tonted           ###   ########.fr       */
+/*   Updated: 2022/03/03 21:07:29 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@
 
 typedef struct s_vars
 {
-	void		*mlx;
-	void		*win;
-	t_img		display;
-	t_map		map;
-	t_assets	assets;
+	void				*mlx;
+	void				*win;
+	t_img				display;
+	t_map				map;
+	t_assets			assets;
 }			t_vars;
 
 /* BONUS */
@@ -54,6 +54,7 @@ typedef struct s_rect
 int			init_map(t_map *map, int fd);
 void		init_player(t_map *map, int len);
 void		init_mlx_assets(t_vars *vars);
+void		init_enemy(t_map *map, int len);
 
 /* assets initialization */
 void		init_assets(t_vars *vars);
@@ -63,6 +64,7 @@ void		set_data_pixel(t_set_data cur_pos, char *dst, t_xpm xpm);
 
 /* graphic functions */
 int			draw_frame(t_vars *vars);
+void		display_move(t_vars *vars);
 int			ignore_color(char *data);
 t_img		new_image(void *mlx_ptr, u_int32_t width, u_int32_t height);
 t_xpm		new_xpm(void *mlx_ptr, char *path, u_int32_t ratio);
@@ -94,6 +96,8 @@ bool		end_game(t_vars *vars);
 u_int32_t	get_pos_data_map(u_int32_t x, u_int32_t y, u_int32_t width);
 bool		cur_char(t_map map, char c);
 bool		is_next_move_valid(t_map *map, int step_x, int step_y);
+bool		is_next_move_valid_e(t_map *map, int step_x, int step_y);
+bool		is_player_on_enemy(t_map map, t_vars *vars);
 int			key_hook(int key, void *param);
 
 /* BONUS */
